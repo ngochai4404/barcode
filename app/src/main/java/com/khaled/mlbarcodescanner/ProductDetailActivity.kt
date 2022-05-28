@@ -56,7 +56,6 @@ class ProductDetailActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Product>?, response: Response<Product>?) {
                 if(response?.body() != null){
                     product = response.body()!!
-                    tvProduct.text = response.body().toString()
                 }
             }
             override fun onFailure(call: Call<Product>?, t: Throwable?) {

@@ -38,7 +38,7 @@ class ListProductActivity : AppCompatActivity() {
                 if(response?.body() != null){
                     // TODO set data on rcv
                     println(response.body().toString());
-                    tvTest.text = response.body().toString()
+                  
                 }
             }
             override fun onFailure(call: Call<List<Product>>?, t: Throwable?) {
