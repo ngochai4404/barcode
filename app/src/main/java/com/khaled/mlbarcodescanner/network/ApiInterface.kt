@@ -1,5 +1,6 @@
 package com.khaled.mlbarcodescanner.network
 
+import com.khaled.mlbarcodescanner.model.Order
 import com.khaled.mlbarcodescanner.model.Product
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -20,6 +21,10 @@ interface ApiInterface {
 
     @GET("/api/orders/checking")
     fun order(@Query("tx") tx: String) : Call<Any>
+
+    @GET("/api/orders")
+    fun getOrder(@Query("address") address: String) : Call<List<Order>>
+
     companion object {
         @Singleton
         var BASE_URL = "http://192.168.1.8:3000"

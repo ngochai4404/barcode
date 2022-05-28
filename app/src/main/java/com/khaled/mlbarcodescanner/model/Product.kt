@@ -10,7 +10,7 @@ data class Product(
                    @SerializedName("code") var valueCode: String,
                    @SerializedName("name") var name: String,
                    @SerializedName("date") var date: String,
-                   @SerializedName("format")  val format: String,
+                   @SerializedName("amount")  val amount: Integer,
                    @SerializedName("price")  val price: Double,
     @SerializedName("image") var Image: String)
 
