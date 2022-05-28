@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">MLBarcodeScanner</string>
     <string name="wallet">Wallet</string>
+    <string name="id">id</string>
+    <string name="valuecode">valueCode</string>
+    <string name="name">name</string>
+    <string name="date">date</string>
+    <string name="format">format</string>
 </resources>
