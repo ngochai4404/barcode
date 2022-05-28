@@ -1,16 +1,18 @@
 package com.khaled.mlbarcodescanner
 
 import android.annotation.SuppressLint
-import android.icu.lang.UCharacter
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.widget.Toast
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isGone
-import com.khaled.mlbarcodescanner.model.Product
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.khaled.mlbarcodescanner.adapter.OrderAdapter
+import com.khaled.mlbarcodescanner.model.Order
 import com.khaled.mlbarcodescanner.network.ApiInterface
 import com.khaled.mlbarcodescanner.service.BlockchainService
 import com.khaled.mlbarcodescanner.utils.PreferenceHelper
-import com.khaled.mlbarcodescanner.utils.PreferenceHelper.get
 import com.khaled.mlbarcodescanner.utils.PreferenceHelper.setValue
 import kotlinx.android.synthetic.main.activity_product.*
 import kotlinx.android.synthetic.main.activity_wallet.*
@@ -49,11 +51,43 @@ class WalletActivity : AppCompatActivity() {
         if(pk.isNullOrBlank()){
             llBalance.isGone = true
             llImport.isGone = false
+            list_order.isGone = true
         }else{
             llBalance.isGone = false
             llImport.isGone = true
+            list_order.isGone = false
             tvAddress.text = service.getWallet(pk).address;
             tvBalance.text = service.getBalance(service.getWallet(pk).address).toString()+" BNB";
         }
+        getListOrder();
+    }
+
+    private fun getListOrder() {
+        var pk = PreferenceHelper.defaultPrefs(baseContext).getString(Constant.WALLET, null);
+        if(pk.isNullOrBlank()) {
+            return
+        }
+        val productResult = ApiInterface.create().getOrder(service.getWallet(pk.toString()).address)
+        productResult.enqueue( object : Callback<List<Order>> {
+            override fun onResponse(call: Call<List<Order>>?, response: Response<List<Order>>?) {
+                if(response?.body() != null){
+                    list_order.setLayoutManager(LinearLayoutManager(baseContext))
+                    var adapter = OrderAdapter(baseContext, response.body())
+                    adapter.setClickListener(object : OrderAdapter.ItemClickListener{
+                        override fun onItemClick(view: View?, position: Int) {
+                            val i = Intent(Intent.ACTION_VIEW)
+                            i.data = Uri.parse("https://testnet.bscscan.com/tx/"+response.body()!!.get(position).tx)
+                            startActivity(i)
+                        }
+
+                    })
+                    list_order.setAdapter(adapter)
+                    adapter.notifyDataSetChanged()
+                }
+            }
+            override fun onFailure(call: Call<List<Order>>?, t: Throwable?) {
+                println("product123"+t!!.localizedMessage!!)
+            }
+        })
     }
 }
