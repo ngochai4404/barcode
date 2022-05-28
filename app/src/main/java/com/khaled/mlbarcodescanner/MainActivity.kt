@@ -23,6 +23,7 @@ import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
     private var previewView: PreviewView? = null
@@ -141,7 +142,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    @SuppressLint("UnsafeExperimentalUsageError")
+    @SuppressLint("UnsafeExperimentalUsageError", "UnsafeOptInUsageError")
     private fun processImageProxy(
         barcodeScanner: BarcodeScanner,
         imageProxy: ImageProxy

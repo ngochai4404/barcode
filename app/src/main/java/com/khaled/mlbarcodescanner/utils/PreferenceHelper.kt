@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.khaled.mlbarcodescanner.utils
 
 import android.content.Context
