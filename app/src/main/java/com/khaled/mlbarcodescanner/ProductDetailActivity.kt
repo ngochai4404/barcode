@@ -52,11 +52,12 @@ class ProductDetailActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Product>?, response: Response<Product>?) {
                 if(response?.body() != null){
                     product = response.body()!!
-                    id_products.text = product!!.id;
-                    name_products.text = product!!.name;
-                    code_products.text = product!!.valueCode;
-                    date_products.text = product!!.price.toString()+" BNB";
-                    format_products.text = product!!.amount.toString();
+                    id_products.text = "ID: "+product!!.id;
+                    name_products.text = "Name: "+product!!.name;
+                    code_products.text = "Code: "+product!!.valueCode;
+                    date_products.text = "Price: "+product!!.price.toString()+" BNB";
+                    format_products.text = "Amount" +
+                            ": "+product!!.amount.toString();
                     Picasso.get().load(product!!.Image)
                         .into(image_products)
                 }
@@ -73,6 +74,8 @@ class ProductDetailActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Any>?, response: Response<Any>?) {
                 if(response?.body() != null){
                     Toast.makeText(baseContext,response.body().toString(),Toast.LENGTH_SHORT).show()
+                    getData()
+
                 }
             }
             override fun onFailure(call: Call<Any>?, t: Throwable?) {
