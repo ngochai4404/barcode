@@ -1,20 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
-   <TextView
-       android:id="@+id/tvProduct"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"/>
+   <LinearLayout
+       android:id="@+id/linearLayout"
+       android:layout_width="match_parent"
+       android:layout_height="300dp"
+       android:gravity="center"
+       android:orientation="vertical"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent">
 
-   <Button
-       android:text="Buy"
-       android:id="@+id/btnBuy"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"/>
+      <ImageView
+          android:id="@+id/image_products"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          app:srcCompat="@drawable/ic_launcher_background" />
 
-</androidx.appcompat.widget.LinearLayoutCompat>
+      <TextView
+          android:id="@+id/id_products"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:textSize="25sp"
+          android:textColor="@color/colorPrimaryDark"
+          android:text="@string/id" />
+
+      <TextView
+          android:id="@+id/name_products"
+          android:layout_width="wrap_content"
+          android:textSize="25sp"
+          android:textColor="@color/colorPrimaryDark"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="@string/name" />
+
+      <TextView
+          android:id="@+id/code_products"
+          android:layout_width="wrap_content"
+          android:textSize="25sp"
+          android:textColor="@color/colorPrimaryDark"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="@string/valuecode" />
+
+      <TextView
+          android:id="@+id/date_products"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="25sp"
+          android:textColor="@color/colorPrimaryDark"
+          android:layout_weight="1"
+          android:text="@string/date" />
+
+      <TextView
+          android:id="@+id/format_products"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="25sp"
+          android:textColor="@color/colorPrimaryDark"
+          android:layout_weight="1"
+          android:text="@string/format" />
+
+   </LinearLayout>
+
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.5"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+       app:layout_constraintVertical_bias="0.5">
+
+      <Button
+          android:id="@+id/btnBuy"
+          style="@style/TextAppearance.AppCompat.Large"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textStyle="bold"
+          android:textColor="@android:color/background_dark"
+          android:text="@string/buy" />
+   </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

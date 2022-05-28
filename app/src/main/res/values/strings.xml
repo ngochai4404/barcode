@@ -7,4 +7,5 @@
     <string name="name">name</string>
     <string name="date">date</string>
     <string name="format">format</string>
+    <string name="buy">Buy</string>
 </resources>
