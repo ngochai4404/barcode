@@ -2,6 +2,7 @@ package com.khaled.mlbarcodescanner
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.DisplayMetrics
@@ -14,7 +15,9 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.mlkit.vision.barcode.Barcode
 import com.google.mlkit.vision.barcode.BarcodeScanner
+import com.google.mlkit.vision.barcode.BarcodeScannerOptions
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
 import java.util.concurrent.Executors
@@ -102,9 +105,9 @@ class MainActivity : AppCompatActivity() {
     private fun bindAnalyseUseCase() {
         // Note that if you know which format of barcode your app is dealing with, detection will be
         // faster to specify the supported barcode formats one by one, e.g.
-        // BarcodeScannerOptions.Builder()
-        //     .setBarcodeFormats(Barcode.FORMAT_QR_CODE)
-        //     .build();
+         BarcodeScannerOptions.Builder()
+             .setBarcodeFormats(Barcode.FORMAT_CODE_93)
+             .build();
         val barcodeScanner: BarcodeScanner = BarcodeScanning.getClient()
 
         if (cameraProvider == null) {
@@ -152,8 +155,12 @@ class MainActivity : AppCompatActivity() {
 
         barcodeScanner.process(inputImage)
             .addOnSuccessListener { barcodes ->
-                barcodes.forEach {
-                    Log.d(TAG, it.rawValue)
+                if(barcodes.size>0) {
+                    val intent = Intent(baseContext, ProductDetailActivity::class.java)
+                    intent.putExtra("code", barcodes[0].rawValue ?: "");
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent)
+                    finish();
                 }
             }
             .addOnFailureListener {

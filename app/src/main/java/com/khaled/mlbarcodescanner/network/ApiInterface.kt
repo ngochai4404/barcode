@@ -7,6 +7,7 @@ import retrofit2.http.GET
 import javax.inject.Singleton
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 
 interface ApiInterface {
@@ -17,6 +18,8 @@ interface ApiInterface {
     @GET("/api/product/{code}")
     fun getProductByCode(@Path("code") code: String) : Call<Product>
 
+    @GET("/api/orders/checking")
+    fun order(@Query("tx") tx: String) : Call<Any>
     companion object {
         @Singleton
         var BASE_URL = "http://192.168.1.8:3000"

@@ -23,6 +23,7 @@ class ListProductActivity : AppCompatActivity() {
 
         StrictMode.setThreadPolicy(policy)
         btnWallet.setOnClickListener { startActivity(Intent(baseContext,WalletActivity::class.java)) }
+        btnScan.setOnClickListener { startActivity(Intent(baseContext,MainActivity::class.java)) }
     }
 
     override fun onResume() {

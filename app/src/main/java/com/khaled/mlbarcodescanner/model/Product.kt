@@ -11,5 +11,6 @@ data class Product(
                    @SerializedName("name") var name: String,
                    @SerializedName("date") var date: String,
                    @SerializedName("format")  val format: String,
+                   @SerializedName("price")  val price: Double,
     @SerializedName("image") var Image: String)
 
