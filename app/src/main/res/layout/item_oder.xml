@@ -9,6 +9,8 @@
 
     <TextView
         android:id="@+id/id_order"
+        android:textStyle="bold"
+        android:textSize="20sp"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,7 +22,8 @@
     <TextView
         android:id="@+id/name_order"
         android:layout_gravity="center"
-
+        android:textStyle="bold"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -29,6 +32,8 @@
     <TextView
         android:id="@+id/date_order"
         android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:singleLine="true"

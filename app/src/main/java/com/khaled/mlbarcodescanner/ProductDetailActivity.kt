@@ -39,7 +39,7 @@ class ProductDetailActivity : AppCompatActivity() {
             var data = service.buyItem(Integer.parseInt(it.id),1,it.price, service.getWallet(pk));
             var hash = data.transactionHash
             Toast.makeText(baseContext,hash,Toast.LENGTH_SHORT).show()
-            Thread.sleep(5000);
+            Thread.sleep(7000);
             order(hash);
 
         }

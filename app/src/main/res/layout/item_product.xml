@@ -10,6 +10,8 @@
     <TextView
         android:id="@+id/id_products"
         android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -18,7 +20,8 @@
     <TextView
         android:id="@+id/code_products"
         android:layout_gravity="center"
-
+        android:textStyle="bold"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -27,7 +30,8 @@
     <TextView
         android:id="@+id/name_products"
         android:layout_gravity="center"
-
+        android:textStyle="bold"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -36,12 +40,12 @@
     <TextView
         android:id="@+id/date_products"
         android:layout_gravity="center"
-
+        android:textStyle="bold"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="@string/date" />
-
 
     <ImageView
         android:id="@+id/image_products"

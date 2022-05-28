@@ -30,6 +30,7 @@
           android:layout_height="wrap_content"
           android:layout_weight="1"
           android:textSize="25sp"
+          android:textStyle="bold"
           android:textColor="@color/colorPrimaryDark"
           android:text="@string/id" />
 
@@ -37,6 +38,7 @@
           android:id="@+id/name_products"
           android:layout_width="wrap_content"
           android:textSize="25sp"
+          android:textStyle="bold"
           android:textColor="@color/colorPrimaryDark"
           android:layout_height="wrap_content"
           android:layout_weight="1"
@@ -46,6 +48,7 @@
           android:id="@+id/code_products"
           android:layout_width="wrap_content"
           android:textSize="25sp"
+          android:textStyle="bold"
           android:textColor="@color/colorPrimaryDark"
           android:layout_height="wrap_content"
           android:layout_weight="1"
@@ -56,6 +59,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:textSize="25sp"
+          android:textStyle="bold"
           android:textColor="@color/colorPrimaryDark"
           android:layout_weight="1"
           android:text="@string/date" />
@@ -65,6 +69,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:textSize="25sp"
+          android:textStyle="bold"
           android:textColor="@color/colorPrimaryDark"
           android:layout_weight="1"
           android:text="@string/format" />
