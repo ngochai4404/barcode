@@ -1,5 +1,6 @@
 package com.khaled.mlbarcodescanner
 
+import android.annotation.SuppressLint
 import android.icu.lang.UCharacter
 import android.os.Bundle
 import android.widget.Toast
@@ -42,6 +43,7 @@ class WalletActivity : AppCompatActivity() {
         checkWallet();
     }
 
+    @SuppressLint("SetTextI18n")
     private fun checkWallet() {
         var pk = PreferenceHelper.defaultPrefs(baseContext).getString(Constant.WALLET, null);
         if(pk.isNullOrBlank()){

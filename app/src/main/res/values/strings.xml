@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MLBarcodeScanner</string>
+    <string name="wallet">Wallet</string>
 </resources>
