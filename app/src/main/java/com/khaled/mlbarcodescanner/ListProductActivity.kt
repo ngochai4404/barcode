@@ -1,8 +1,8 @@
 package com.khaled.mlbarcodescanner
 
-import android.icu.lang.UCharacter
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
+import android.os.StrictMode
 import androidx.appcompat.app.AppCompatActivity
 import com.khaled.mlbarcodescanner.model.Product
 import com.khaled.mlbarcodescanner.network.ApiInterface
@@ -11,6 +11,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 /**
  * Created by haipn on 28/05/2022.
  */
@@ -18,6 +19,10 @@ class ListProductActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product)
+        val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
+
+        StrictMode.setThreadPolicy(policy)
+        btnWallet.setOnClickListener { startActivity(Intent(baseContext,WalletActivity::class.java)) }
     }
 
     override fun onResume() {

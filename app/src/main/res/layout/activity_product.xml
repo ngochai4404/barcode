@@ -13,5 +13,10 @@
         android:id="@+id/tvTest"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnWallet"
+        android:text="Wallet"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
