@@ -7,13 +7,18 @@
     tools:context=".MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
+        tools:listitem="@layout/item_product"
         android:id="@+id/list_item"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    <TextView
-        android:id="@+id/tvTest"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+<!--    <TextView-->
+<!--        android:id="@+id/tvTest"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnWallet"
