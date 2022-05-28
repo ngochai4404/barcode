@@ -1,21 +1,17 @@
 package com.khaled.mlbarcodescanner
 
-import android.annotation.SuppressLint
-import android.icu.lang.UCharacter
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isGone
-import com.google.android.gms.common.util.SharedPreferencesUtils
 import com.khaled.mlbarcodescanner.model.Product
 import com.khaled.mlbarcodescanner.network.ApiInterface
 import com.khaled.mlbarcodescanner.service.BlockchainService
 import com.khaled.mlbarcodescanner.utils.PreferenceHelper
-import com.khaled.mlbarcodescanner.utils.PreferenceHelper.get
-import com.khaled.mlbarcodescanner.utils.PreferenceHelper.setValue
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_product.*
 import kotlinx.android.synthetic.main.activity_wallet.*
 import kotlinx.android.synthetic.main.product_detail.*
+import kotlinx.android.synthetic.main.product_detail.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -56,6 +52,13 @@ class ProductDetailActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Product>?, response: Response<Product>?) {
                 if(response?.body() != null){
                     product = response.body()!!
+                    id_products.text = product!!.id;
+                    name_products.text = product!!.name;
+                    code_products.text = product!!.valueCode;
+                    date_products.text = product!!.price.toString()+" BNB";
+                    format_products.text = product!!.amount.toString();
+                    Picasso.get().load(product!!.Image)
+                        .into(image_products)
                 }
             }
             override fun onFailure(call: Call<Product>?, t: Throwable?) {
